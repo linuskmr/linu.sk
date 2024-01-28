@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="/style.css">
+	<script src="/footnote.js"></script>
+
+	<!--
+		Enable autodiscover, so browsers can show a button to subscribe to the feed. 
+		https://www.getzola.org/documentation/templates/feeds/
+	-->
+	<link rel="alternate" type="application/atom+xml" title="RSS" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
+
+	<!--
+		Use the general title specified in the config.toml.
+		Child templates may override the title block with `page.title | config.title` or similar.
+	-->
+
+	<!-- Doesn't run for the 404 page, which is neither a page nor a section -->
+	{% if page or section %}
+		{% set title = page.title | default(value=section.title) %}
+	{% endif %}
+
+	<!-- If the page defines a title, use it together with the general title.- Otherwise, use the general title only -->
+	{% if title %}
+		{% set title = title ~ " | " ~ config.title %}
+	{% else %}
+		{% set title = config.title %}
+	{% endif %}
+	<title>{{ title }}</title>
+
+	<!--
+		Use the general description specified in the config.toml.
+		Child templates may override the description block with `page.description` or similar.
+	-->
+	<meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}" />
+	<meta name=generator content="Zola">
+	<meta name="author" content="Linus">
+</head>
+
+<body>
+	<nav class="breadcrumbs">
+		<!-- From https://zola.discourse.group/t/breadcrumb/509/3 -->
+		<ul>
+			<li><a class="button" href="/">Home</a></li>
+			{% if section or page %}
+				{% set current = section | default(value=page) %}
+				{% for ancestor in current.ancestors %}
+					{% if loop.first %}
+						{% continue %}
+					{% endif %}
+					{% set section = get_section(path=ancestor) %}
+					<li>/</li>
+					<li><a class="button" href="{{ section.permalink }}">{{ section.title }}</a></li>
+				{% endfor %}
+
+				<!-- Skip index/home because it is always added at the beginning -->
+				{% if current.permalink != "/" and current.permalink != "http://127.0.0.1:1111/" %}
+					<li>/</li>
+					<li><a class="button" href="{{ current.permalink }}">{{ current.title }}</a></li>
+				{% endif %}
+			{% endif %}
+		</ul>
+	</nav>
+
+	{% block header %} {% endblock %}
+
+	<main>
+		{% block content %} {% endblock %}
+	</main>
+
+	<footer>
+		<p>
+			linu.sk © 2024 — <a href="/about">About</a>
+		</p>
+	</footer>
+</body>
+
+</html>

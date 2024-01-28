@@ -1,0 +1,9 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: {{ get_url(path="sitemap.xml") }}
+
+# Disallow ChatGPT crawling bot, according to
+# https://platform.openai.com/docs/gptbot/disallowing-gptbot
+User-agent: GPTBot
+Disallow: /

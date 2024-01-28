@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+<!-- Adapted from https://github.com/kytta/www/blob/v8/templates/orphan.html -->
+
+<!-- Set title to page title followed by the general title -->
+{% block title %}errno = ENOENT | {{ config.title }}{% endblock title %}
+
+
+{% block header %}
+	<header>
+		<h1>errno = ENOENT</h1>
+		<p>
+			open: No such file or directory<br>
+			Or <b>404 Not Found</b>, as web devs would say
+		</p>
+	</header>
+{% endblock header %}
+
+{% block content %}
+	<p>
+		This URL does not correspond to a web page.
+		Maybe you mistyped the URL or clicked on an invalid link?
+		Alternatively, this page was moved or removed, intentionally or unintentionally. If you think latter is the case, please <a href="/">contact me</a>.
+	</p>
+{% endblock content %}

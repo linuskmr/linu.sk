@@ -1,0 +1,29 @@
+{% extends "section.html" %}
+<!--
+Lists of all blog articles.
+-->
+
+
+{% block header %}
+	<header>
+		<h1 class="title">
+			{{ section.title }}
+		</h1>
+	</header>
+{% endblock header %}
+
+
+{% block content %}
+	{{ section.content | markdown | safe }}
+
+	{% for page in section.pages %}
+	<article>
+		<a href="{{ page.permalink | safe }}">{{ page.title }}<br></a>
+		<small class="muted">
+			<time datetime="{{ page.date | date(format="%+")}}">
+				{{ page.date | date(format="%Y-%m-%d") }}
+			</time>
+		</small>
+	</article>
+	{% endfor %}
+{% endblock content %}

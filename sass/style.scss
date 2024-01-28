@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap');
+
+
+:root {
+	color-scheme: light dark;
+
+	--link-color: blue;
+	--secondary-font-color: #66798c;
+	--secondary-bg-color: #f0f2f4;
+	--padding: 10px;
+	--bg-color: #fff;
+	--font-color: #000;
+	--border-radius: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--link-color: dodgerblue;
+		--secondary-font-color: #a0acb9;
+		--secondary-bg-color: #1c2026;
+		--bg-color: #111;
+		--font-color: #e2e8f0;
+	}
+}
+
+body {
+	margin: 0;
+
+	font: 100%/1.5 "PT Sans", sans-serif;
+	/*
+	For Inter:
+	ss0: open digits / other number style
+	zero: slashed zero
+	cv05: lower case L with tail
+	cv07: German double s
+	*/
+	/* font-feature-settings: "cv05"; */
+
+	/* Limit site width */
+	max-width: 1024px;
+
+	/* Center content if window bigger than allowed site width limit */
+	margin: 0 auto;
+
+	/* Use flex in order to let main stretch over the whole page */
+	display: flex;
+	flex-direction: column;
+
+	/*
+	Let the body always stretch ove the full page, so that the footer is always at the bottom of the page,
+	even it the site doesn't fill the whole screen.
+	*/
+	min-height: 100vh;
+	background-color: var(--bg-color);
+	color: var(--font-color);
+}
+
+main {
+	// Enlarge main content area, so that the footer is always at the bottom of the page,
+	// even it the site doesn't fill the whole screen.
+	flex: 1;
+}
+
+main, header, footer {
+	padding: var(--padding);
+}
+
+.header-colored {
+	background-color: var(--nav-bg-color);
+
+	&, a {
+		color: white;
+	}
+}
+
+span[title] {
+	// Display <abbr> and <span title=""> similar
+	cursor: help;
+	text-decoration: underline dotted;
+}
+ul {
+	// Decrease default list padding
+	padding-left: 20px;
+}
+li+li {
+	// Add margin between list items
+	margin-top: 5px;
+}
+
+footer {
+	border-top: 2px solid var(--secondary-bg-color);
+	font-size: small;
+}
+
+ol, ul {
+	padding-left: 20px;
+	li {
+		padding-left: 5px;
+	}
+	li + li {
+		margin-top: 5px;
+	}
+	li::marker {
+		font-weight: 500;
+	}
+}
+
+
+nav {
+	// background-color: #222028;
+	// border-radius: 5px;
+
+	&:not(.breadcrumbs) {
+		/*
+		display: flex;
+		gap: 20px;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		*/
+	}
+
+	&.breadcrumbs {
+		border-bottom: 2px solid var(--secondary-bg-color);
+		padding: 0 var(--padding);
+		font-size: small;
+
+		ul {
+			display: inline-block;
+			list-style: none;
+			padding: 0;
+			
+			li {
+				display: inline;
+				padding: 0;
+
+				&:not(:last-child):after {
+					// content: ' /';
+				}
+
+				a {
+					// text-decoration: none;
+				}
+			}
+		}
+	}
+}
+
+
+article {
+	padding: 10px 0;
+}
+
+a {
+	color: dodgerblue;
+
+	// Remove the underline on hover
+	&:hover {
+		text-decoration: none;
+	}
+
+	// External links get an arrow ↗ after them
+	&.external {
+		&:after {
+			content: "↗";
+		}
+	}
+
+	// Text links appear as normal text
+	&.text {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	&.button {
+		padding: 5px;
+		border-radius: 3px;
+
+		&:hover {
+			background-color: var(--secondary-bg-color);
+		}
+	}
+}
+
+span[title] {
+	text-decoration: underline dotted;
+	cursor: help;
+}
+
+blockquote {
+	margin: 0;
+	padding-left: 10px;
+	border-left: 2px solid;
+}
+
+table, th, td {
+	border-collapse: collapse;
+	border: 1px solid;
+	padding: 7px;
+}
+
+th {
+	font-weight: 600;
+}
+
+h1 {
+	margin: 0;
+	margin-top: 1.5em;
+	font-weight: bold;
+}
+h2 {
+	margin: 0;
+	margin-top: 1.5em;
+	font-size: medium;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+h2 + p {
+	// Remove margin-top from p if h2 above
+	margin-top: 0;
+}
+
+
+footer {
+	border-top: 2px solid var(--secondary-bg-color);
+	font-size: small;
+}
+
+hr {
+	margin: 30px 0;
+}
+
+.muted {
+	// No absolute color, so it is independent of the color scheme
+	filter: contrast(50%);
+}
+
+header {
+	margin: 30px 0;
+
+	* {
+		// Remove margin from all h1, h2, p, ...
+		margin: 0;
+	}
+}
+
+pre {
+	padding: 10px;
+	border-radius: var(--border-radius);
+	overflow: auto; // Enable scrollbar on overflow
+}
+
+pre, code {
+	font-family: 'IBM Plex Mono', monospace;
+	font-size: small;
+}
+
+dl.grid {
+	@media (min-width: 20rem) {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 10px;
+	}
+	@media (max-width: 20rem) {
+		dd:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+}
+
+div.grid {
+	@media (min-width: 50rem) {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		column-gap: 30px; // Since we don't have the padding normally on the left side of dd elements
+	}
+	.dd:not(:last-child) {
+		margin-bottom: 40px;
+	}
+}
+
+img.round {
+	border-radius: 50%;
+}
+
+img {
+	border-radius: var(--border-radius);
+	max-width: 100%;
+}
+
+a.anchor {
+	text-decoration: none;
+	color: inherit;
+}
+
+a.anchor:hover:after {
+	font-size: 80%;
+	vertical-align: middle;
+	content: ' 🔗';
+}
+
+section {
+	margin: 50px 0;
+}
+
+.cv-item + .cv-item {
+	margin-top: 50px;
+}
+
+.footnote-definition {
+	font-size: small;
+	// Apply the same margin between footnotes as between normal p's
+	margin: 1em 0;
+
+	// Add a line between the main text and the first footnote
+	// Currently, we manually just insert `---` inside the markdown file
+	/* &:first-of-type {
+		border-top: 1px solid;
+	} */
+
+	sup.footnote-definition-label + p {
+		// Make the footnote text appear on the same line as the footnote label
+		display: inline;
+
+		&:before, &:after {
+			// Add a space between footnote label (i.e. number) and footnote text,
+			// ... and a space between footnote text and back to footnote link arrow
+			content: ' ';
+		}
+	}
+}
+
+figure {
+	margin: 0 auto;
+	text-align: center;
+
+	figcaption p {
+		margin: 0;
+	}
+}

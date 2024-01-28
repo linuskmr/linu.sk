@@ -1,0 +1,23 @@
+{% extends "page.html" %}
+<!--
+A blog article generated from the content in `content/blog/SLUG.md`.
+-->
+
+{% block header %}
+<header>
+	<h1 class="title">
+		{{ page.title }}
+	</h1>
+	
+	<p>
+		<time datetime="{{ page.date | date(format="%+")}}">
+			{{ page.date | date(format="%Y-%m-%d") }}
+		</time>
+	</strong></p>
+</header>
+{% endblock header %}
+
+
+{% block content %}
+	{{ page.content | safe }}
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+<!--
+A directory overview, e.g. a list of blog articles.
+-->
+
+
+<!-- Set title to page title followed by the general title -->
+
+
+{% block content %}
+	{{ section.content | safe }}
+	
+	<section>
+		<p style="text-transform: uppercase; font-size: small;">On this site:</p>
+		<nav>
+			<ul>
+				{% for page in section.pages %}
+					<li><a href="{{ page.permalink }}">{{ page.title }}</a></li>
+				{% endfor %}
+
+				{% for section_url in section.subsections %}
+					{% set section = get_section(path=section_url, metadata_only=true) %}
+					<li><a href="{{ section.permalink }}">{{ section.title }}</a></li>
+				{% endfor %}
+			</ul>
+		</nav>
+	</section>
+
+{% endblock content %}
