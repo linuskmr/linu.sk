@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap');
 
-
 :root {
 	color-scheme: light dark;
 
@@ -13,6 +12,10 @@
 	--font-color: #000;
 	--border-radius: 5px;
 }
+
+// Light and dark scheme code block syntax highlighting themes
+@import url("syntax-theme-dark.css") (prefers-color-scheme: dark);
+@import url("syntax-theme-light.css") (prefers-color-scheme: light);
 
 @media (prefers-color-scheme: dark) {
 	:root {
@@ -67,7 +70,7 @@ main, header, footer {
 }
 
 .header-colored {
-	background-color: var(--nav-bg-color);
+	background-color: dodgerblue;
 
 	&, a {
 		color: white;
