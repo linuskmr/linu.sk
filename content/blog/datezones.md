@@ -22,7 +22,7 @@ Hmm, too complicated? Yes, but so are time zones.
 
 ---
 
-[^1]: There are exceptions to avoid having multiple timezones in one country. For example, China has only one timezone ([BJT/CST](https://en.wikipedia.org/wiki/Time_in_China)), even though it spans 5 geographical timezones. And while Spain and Poland both use CET aka UTC+1, Spain is on the some longitudes as the UK, which uses UTC.
+[^1]: There are exceptions to avoid having multiple timezones in one country. For example, China has only one timezone ([BJT/CST](https://en.wikipedia.org/wiki/Time_in_China)), even though it spans 5 geographical timezones. And while Spain and Poland both use CET aka UTC+1, Spain is on the same longitudes as the UK, which uses UTC.
 
 [^2]: There are also timezones 15, 30 and 45 min apart from a full hour, as shown by the [Wikipedia article about timezones](https://en.wikipedia.org/wiki/Time_zone).
 
