@@ -1,8 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- Adapted from the default Atom feed (https://github.com/getzola/zola/blob/4a56c068e034463f91ab49ce3b52cbcaf6d3059b/components/templates/src/builtins/atom.xml) to show the description instead of the summary.
 
 When using Zola, you can add <(exclamation mark)- more -> somewhere in your text. The text above will then be the summary. However, I'd like to have a more descriptive summary, so I use the description field of the front matter of a markdown document as the summary for the Atom feed.
 -->
-<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ lang }}">
     <title>{{ config.title }}
     {%- if term %} - {{ term.name }}
