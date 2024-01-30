@@ -1,0 +1,53 @@
+<!-- Adapted from the default Atom feed (https://github.com/getzola/zola/blob/4a56c068e034463f91ab49ce3b52cbcaf6d3059b/components/templates/src/builtins/atom.xml) to show the description instead of the summary.
+
+When using Zola, you can add <(exclamation mark)- more -> somewhere in your text. The text above will then be the summary. However, I'd like to have a more descriptive summary, so I use the description field of the front matter of a markdown document as the summary for the Atom feed.
+-->
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ lang }}">
+    <title>{{ config.title }}
+    {%- if term %} - {{ term.name }}
+    {%- elif section.title %} - {{ section.title }}
+    {%- endif -%}
+    </title>
+    {%- if config.description %}
+    <subtitle>{{ config.description }}</subtitle>
+    {%- endif %}
+    <link rel="self" type="application/atom+xml" href="{{ feed_url | safe }}"/>
+    <link rel="alternate" type="text/html" href="
+      {%- if section -%}
+        {{ section.permalink | escape_xml | safe }}
+      {%- else -%}
+        {{ config.base_url | escape_xml | safe }}
+      {%- endif -%}
+    "/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>{{ last_updated | date(format="%+") }}</updated>
+    <id>{{ feed_url | safe }}</id>
+    {%- for page in pages %}
+    <entry xml:lang="{{ page.lang }}">
+        <title>{{ page.title }}</title>
+        <published>{{ page.date | date(format="%+") }}</published>
+        <updated>{{ page.updated | default(value=page.date) | date(format="%+") }}</updated>
+        {% for author in page.authors %}
+        <author>
+          <name>
+            {{ author }}
+          </name>
+        </author>
+        {% else %}
+        <author>
+          <name>
+            {%- if config.author -%}
+              {{ config.author }}
+            {%- else -%}
+              Unknown
+            {%- endif -%}
+          </name>
+        </author>
+        {% endfor %}
+        <link rel="alternate" type="text/html" href="{{ page.permalink | safe }}"/>
+        <id>{{ page.permalink | safe }}</id>
+        <summary type="html">{{ page.description }}</summary>
+    </entry>
+    {%- endfor %}
+</feed>
