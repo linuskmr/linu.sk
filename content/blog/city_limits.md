@@ -1,7 +1,6 @@
 +++
 title = "City Limits"
 date = 2024-01-29
-draft = true
 +++
 
 # Paris and Berlin
