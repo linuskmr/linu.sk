@@ -1,5 +1,6 @@
 +++
 title = "City Limits"
+description = "Why, on paper, Berlin is bigger than Paris"
 date = 2024-01-29
 +++
 

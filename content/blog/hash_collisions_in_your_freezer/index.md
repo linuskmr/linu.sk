@@ -1,6 +1,7 @@
 +++
 title = "Hash Collisions in Your Freezer"
 date = 2024-01-27
+description = "How non-unique pre-printed codes on freezer bags can lead to confusion"
 +++
 
 I recently came across the [Toppits freezer bags](https://www.toppits.de/en/freezer-bags-419.html) with their 4-digit "pre-printed freshness codes". 

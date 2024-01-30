@@ -1,5 +1,6 @@
 +++
 title = "Datezones"
+description = "Timezones ensure that noon is roughly at 12 o'clock local time on every place on earth. Why not do the same for dates?"
 date = 2024-01-28
 +++
 
