@@ -17,6 +17,7 @@ A directory overview, e.g. a list of blog articles.
 				{% for page in section.pages %}
 					<li>
 						<a href="{{ page.path }}">{{ page.title }}</a><br>
+						<small>{{ page.description }}</small>
 					</li>
 				{% endfor %}
 
