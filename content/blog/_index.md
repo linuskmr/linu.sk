@@ -1,5 +1,6 @@
 +++
 title = "Blog"
+description = "Interesting things I have come across"
 sort_by = "date"
 template = "blog.html"
 page_template = "blog-article.html"

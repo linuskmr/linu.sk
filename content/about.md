@@ -1,5 +1,6 @@
 +++
 title = "About"
+description = "Technical details and a non-imprint"
 +++
 
 
