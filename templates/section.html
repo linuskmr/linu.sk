@@ -15,12 +15,14 @@ A directory overview, e.g. a list of blog articles.
 		<nav>
 			<ul>
 				{% for page in section.pages %}
-					<li><a href="{{ page.permalink }}">{{ page.title }}</a></li>
+					<li>
+						<a href="{{ page.path }}">{{ page.title }}</a><br>
+					</li>
 				{% endfor %}
 
 				{% for section_url in section.subsections %}
 					{% set section = get_section(path=section_url, metadata_only=true) %}
-					<li><a href="{{ section.permalink }}">{{ section.title }}</a></li>
+					<li><a href="{{ section.path }}">{{ section.title }}</a></li>
 				{% endfor %}
 			</ul>
 		</nav>

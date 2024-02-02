@@ -18,7 +18,7 @@ Lists of all blog articles.
 
 	{% for page in section.pages %}
 	<article>
-		<a href="{{ page.permalink | safe }}">{{ page.title }}<br></a>
+		<h3 style="margin: 0;"><a href="{{ page.path | safe }}">{{ page.title }}</a></h3>
 		<small class="muted">
 			<time datetime="{{ page.date | date(format="%+")}}">
 				{{ page.date | date(format="%Y-%m-%d") }}
