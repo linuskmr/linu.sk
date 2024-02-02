@@ -23,7 +23,10 @@ A directory overview, e.g. a list of blog articles.
 
 				{% for section_url in section.subsections %}
 					{% set section = get_section(path=section_url, metadata_only=true) %}
-					<li><a href="{{ section.path }}">{{ section.title }}</a></li>
+					<li>
+						<a href="{{ section.path }}">{{ section.title }}</a><br>
+						<small>{{ section.description }}</small>
+					</li>
 				{% endfor %}
 			</ul>
 		</nav>
