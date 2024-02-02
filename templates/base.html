@@ -44,23 +44,25 @@
 	<nav class="breadcrumbs">
 		<!-- From https://zola.discourse.group/t/breadcrumb/509/3 -->
 		<ul>
-			<li><a class="button" href="/">Home</a></li>
+			{% set home_title = "Home" %}
 			{% if section or page %}
 				{% set current = section | default(value=page) %}
 				{% for ancestor in current.ancestors %}
-					{% if loop.first %}
-						{% continue %}
-					{% endif %}
 					{% set section = get_section(path=ancestor) %}
+					{% set title = section.title %}
+					{% if not title %}
+						{% set title = home_title %}
+					{% endif %}
+					<li><a class="button ancestor" href="{{ section.path }}">{{ title }}</a></li>
 					<li>/</li>
-					<li><a class="button" href="{{ section.permalink }}">{{ section.title }}</a></li>
 				{% endfor %}
 
 				<!-- Skip index/home because it is always added at the beginning -->
-				{% if current.permalink != "/" and current.permalink != "http://127.0.0.1:1111/" %}
-					<li>/</li>
-					<li><a class="button" href="{{ current.permalink }}">{{ current.title }}</a></li>
+				{% set title = current.title %}
+				{% if not title %}
+					{% set title = home_title %}
 				{% endif %}
+				<li><a class="button current" href="{{ current.path }}">{{ title }}</a></li>
 			{% endif %}
 		</ul>
 	</nav>
