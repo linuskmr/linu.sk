@@ -58,7 +58,15 @@
 		</ul>
 	</nav>
 
-	{% block header %} {% endblock %}
+	<!-- Default header with title and description of the page or section. Can be overridden in child templates -->
+	{% block header %}
+		{% if page or section %}
+		<header>
+			<h1><a class="anchor" href="#">{{ page.title | default(value=section.title) }}</a></h1>
+			<p>{{ page.description | default(value=section.description) }}</p>
+		</header>
+		{% endif %}
+	{% endblock %}
 
 	<main>
 		{% block content %} {% endblock %}

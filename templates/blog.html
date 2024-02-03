@@ -3,16 +3,6 @@
 Lists of all blog articles.
 -->
 
-
-{% block header %}
-	<header>
-		<h1 class="title">
-			{{ section.title }}
-		</h1>
-	</header>
-{% endblock header %}
-
-
 {% block content %}
 	{{ section.content | markdown | safe }}
 
