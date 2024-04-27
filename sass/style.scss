@@ -215,12 +215,17 @@ h1 {
 h2 {
 	margin: 0;
 	margin-top: 1.5em;
+	font-weight: bold;
+}
+h3 {
+	margin: 0;
+	margin-top: 1.5em;
 	font-size: medium;
 	font-weight: bold;
 	text-transform: uppercase;
 }
-h2 + p {
-	// Remove margin-top from p if h2 above
+h3 + p {
+	// Remove margin-top from p if h3 above
 	margin-top: 0;
 }
 
