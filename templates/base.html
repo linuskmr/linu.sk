@@ -54,6 +54,11 @@
 
 				<!-- Skip index/home because it is always added at the beginning -->
 				<li><a class="button current" href="{{ current.path }}">{{ current.title | default(value=config.title) }}</a></li>
+			{% else %}
+				<!-- Always? the 404 page -->
+				<li><a class="button ancestor" href="/">{{ config.title }}</a></li>
+				<li>/</li>
+				<li><a class="button current" href="/404.html">404 Not Found</a></li>
 			{% endif %}
 		</ul>
 	</nav>
