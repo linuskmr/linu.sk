@@ -18,14 +18,14 @@ Any two bags (a pair) with the same freshness code in our freezer is a problem, 
 Or, to put it in computer science terms: How likely is a hash collision?
 
 
-## The birthday problem
+# The birthday problem
 
 Ever heard of the [birthday problem](https://en.wikipedia.org/wiki/Birthday_problem)? For a group of 23 people, the probability that two people have the same birthday date (day and month) is already over 50%. It's the same here.
 In general, the problem deals with distributing items (persons) to buckets (birthdays). In our case, we distribute bags (items) to 10,000 freshness codes (buckets).
 
 
 
-## Analyzing the problem with code
+# Analyzing the problem with code
 
 I grabbed the [formula from Wikipedia](https://en.wikipedia.org/wiki/Birthday_problem#Calculating_the_probability) and plotted the probability of a collision for the freshness codes:
 
@@ -63,7 +63,7 @@ For 119 bags in your freezer, the probability of a collision is over 50%. Better
 
 
 
-## Making the problem worse
+# Making the problem worse
 
 Now let's say you aren't such a power user and only have 30 bags in your freezer.
 

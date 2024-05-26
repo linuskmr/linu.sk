@@ -7,4 +7,4 @@ page_template = "blog-article.html"
 insert_anchor_links = "heading"
 +++
 
-Want to stay up-to-date? Subscribe to the [Atom feed](/atom.xml)!
+Wanna stay up-to-date? Subscribe to the [Atom feed](/atom.xml) or [get push notifications](/notify) for new blog posts!
