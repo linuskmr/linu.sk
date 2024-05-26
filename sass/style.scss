@@ -10,6 +10,8 @@
 	--padding: 10px;
 	--bg-color: #fff;
 	--font-color: #000;
+	--nav-fg-color: white;
+	--nav-bg-color: dodgerblue;
 	--border-radius: 5px;
 }
 
@@ -70,10 +72,10 @@ main, header, footer {
 }
 
 .header-colored {
-	background-color: dodgerblue;
+	background-color: var(--nav-bg-color);
 
 	&, a {
-		color: white;
+		color: var(--nav-fg-color);
 	}
 }
 
@@ -125,6 +127,11 @@ nav {
 	}
 
 	&.breadcrumbs {
+		&, a {
+			color: var(--nav-fg-color);
+			background-color: var(--nav-bg-color);
+		}
+
 		border-bottom: 2px solid var(--secondary-bg-color);
 		padding: 0 var(--padding);
 		font-size: small;
@@ -174,6 +181,12 @@ a {
 	&.text {
 		color: inherit;
 		text-decoration: none;
+	}
+
+	&.padding {
+		padding: 5px;
+		border-radius: 3px;
+	
 	}
 
 	&.button {
