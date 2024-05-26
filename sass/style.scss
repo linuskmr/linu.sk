@@ -207,26 +207,38 @@ th {
 	font-weight: 600;
 }
 
-h1 {
+main h1 {
 	margin: 0;
-	margin-top: 1.5em;
-	font-weight: bold;
+	margin-top: 2.5em;
+	font-size: medium;
+
+	counter-increment: h1;
+	counter-set: h2 0;
+	&:before {
+		content: counter(h1) '. ';
+	}
 }
-h2 {
-	margin: 0;
-	margin-top: 1.5em;
-	font-weight: bold;
-}
-h3 {
+main h2 {
 	margin: 0;
 	margin-top: 1.5em;
 	font-size: medium;
-	font-weight: bold;
-	text-transform: uppercase;
+
+	counter-increment: h2;
+	counter-set: h3 0;
+
+	&:before {
+		content: counter(h1) '.' counter(h2) '. ';
+	}
 }
-h3 + p {
-	// Remove margin-top from p if h3 above
-	margin-top: 0;
+main h3 {
+	margin: 0;
+	font-size: medium;
+	margin-top: 1.5em;
+
+	counter-increment: h3;
+	&:before {
+		content: counter(h1) '.' counter(h2) '.' counter(h3) '. ';
+	}
 }
 
 
