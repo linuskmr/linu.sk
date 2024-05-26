@@ -14,7 +14,7 @@ function sendDemoNotification() {
 	new Notification(
 		"Demo notification",
 		{
-			body: "Demo notification from linu.sk",
+			"body": "Demo notification from linu.sk",
 			"silent": true,
     		"data": {
       			"url": "https://linu.sk"

@@ -32,15 +32,16 @@
 body {
 	margin: 0;
 
-	font: 100%/1.5 "PT Sans", sans-serif;
-	/*
-	For Inter:
-	ss0: open digits / other number style
-	zero: slashed zero
-	cv05: lower case L with tail
-	cv07: German double s
-	*/
-	/* font-feature-settings: "cv05"; */
+	font: 100%/1.5 "Inter", sans-serif;
+	font-feature-settings:
+		"ss01", // open digits
+		"cv05"; // lower case L with tail (disambiguation)
+	font-size: 14px;
+	word-break: break-word;
+	hyphens: auto;
+	@supports (font-variation-settings: normal) {
+		:root { font-family: 'Inter var', sans-serif; }
+	}
 
 	/* Limit site width */
 	max-width: 1024px;
