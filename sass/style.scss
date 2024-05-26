@@ -114,7 +114,7 @@ ol, ul {
 
 
 nav {
-	// background-color: #222028;
+	// position: fixed;
 	// border-radius: 5px;
 
 	&:not(.breadcrumbs) {
@@ -147,11 +147,7 @@ nav {
 				padding: 0;
 
 				&:not(:last-child):after {
-					// content: ' /';
-				}
-
-				a {
-					// text-decoration: none;
+					content: '›';
 				}
 			}
 		}
