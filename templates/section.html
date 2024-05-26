@@ -9,22 +9,20 @@ A directory overview, e.g. a list of blog articles.
 	<section>
 		<p style="text-transform: uppercase; font-size: small;">On this site:</p>
 		<nav>
-			<ul>
 				{% for page in section.pages %}
-					<li>
-						<a href="{{ page.path }}">{{ page.title }}</a><br>
+					<p>
+						<b><a href="{{ page.path }}">{{ page.title }}</a></b><br>
 						<small>{{ page.description }}</small>
-					</li>
+					</p>
 				{% endfor %}
 
 				{% for section_url in section.subsections %}
 					{% set section = get_section(path=section_url, metadata_only=true) %}
-					<li>
-						<a href="{{ section.path }}">{{ section.title }}</a><br>
+					<p>
+						<b><a href="{{ section.path }}">{{ section.title }}</a></b><br>
 						<small>{{ section.description }}</small>
-					</li>
+					</p>
 				{% endfor %}
-			</ul>
 		</nav>
 	</section>
 
