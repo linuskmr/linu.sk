@@ -22,6 +22,7 @@
 	<!-- Doesn't run for the 404 page, which is neither a page nor a section -->
 	{% if page or section %}
 		{% set title = page.title | default(value=section.title) %}
+		{% set description = page.description | default(value=section.description) %}
 	{% endif %}
 
 	<!-- If the page defines a title, use it together with the general title.- Otherwise, use the general title only -->
@@ -36,7 +37,7 @@
 		Use the general description specified in the config.toml.
 		Child templates may override the description block with `page.description` or similar.
 	-->
-	<meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}" />
+	<meta name="description" content="{% block description %}{{ description | default(value=config.description) }}{% endblock %}" />
 	<meta name=generator content="Zola">
 	<meta name="author" content="Linus">
 </head>
