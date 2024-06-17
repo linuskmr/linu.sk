@@ -369,3 +369,33 @@ figure {
 		margin: 0;
 	}
 }
+
+// Styling adapted from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
+details {
+	border: 1px solid var(--secondary-font-color);
+	border-radius: var(--border-radius);
+	padding: 0.5em 0.5em 0;
+	margin: 1em 0;
+
+	summary {
+		// Shows the user that the summary is clickable
+		cursor: pointer;
+		margin: -0.5em -0.5em 0;
+		padding: 0.5em;
+	}
+
+	&[open] {
+		padding: 0.5em;
+		summary {
+			// Separator between summary and details content
+			border-bottom: 1px solid var(--secondary-font-color);
+			margin-bottom: 0.5em;
+		}
+	}
+
+	&.toc summary {
+		// The text "TABLE OF CONTENTS" should be displayed in small uppercase letters
+		font-size:small;
+		text-transform: uppercase;
+	}
+}

@@ -16,6 +16,34 @@ A blog article generated from the content in `content/blog/SLUG.md`.
 			{{ page.date | date(format="%Y-%m-%d") }}
 		</time>
 	</strong></p>
+
+	<!--
+	TABLE OF CONTENTS
+	See https://www.getzola.org/documentation/content/table-of-contents/ 
+	-->
+	<details class="toc">
+		<summary>Table of Contents</summary>
+		{% if page.toc %}
+			<ul>
+			{% for h1 in page.toc %}
+				{% set h1_loop_index = loop.index %}
+				<li>
+					<a href="{{ h1.permalink | safe }}">{{ h1_loop_index }}. {{ h1.title }}</a>
+					{% if h1.children %}
+						<ul>
+							{% for h2 in h1.children %}
+								{% set h2_loop_index = loop.index %}
+								<li>
+									<a href="{{ h2.permalink | safe }}">{{ h1_loop_index }}.{{ h2_loop_index }}. {{ h2.title }}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				</li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+	</details>
 </header>
 {% endblock header %}
 
