@@ -12,7 +12,7 @@ A directory overview, e.g. a list of blog articles.
 				{% for page in section.pages %}
 					<p>
 						<b><a href="{{ page.path }}">{{ page.title }}</a></b><br>
-						<small>{{ page.description }}</small>
+						<span>{{ page.description }}</span>
 					</p>
 				{% endfor %}
 
@@ -20,7 +20,7 @@ A directory overview, e.g. a list of blog articles.
 					{% set section = get_section(path=section_url, metadata_only=true) %}
 					<p>
 						<b><a href="{{ section.path }}">{{ section.title }}</a></b><br>
-						<small>{{ section.description }}</small>
+						<span>{{ section.description }}</span>
 					</p>
 				{% endfor %}
 		</nav>
