@@ -74,6 +74,7 @@ main, header, footer {
 
 .header-colored {
 	background-color: var(--nav-bg-color);
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
 
 	&, a {
 		color: var(--nav-fg-color);
@@ -115,7 +116,7 @@ ol, ul {
 
 nav {
 	// position: fixed;
-	// border-radius: 5px;
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
 
 	&:not(.breadcrumbs) {
 		/*
