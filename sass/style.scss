@@ -73,6 +73,7 @@ main, header, footer {
 }
 
 .header-colored {
+	margin-top: 5px;
 	background-color: var(--nav-bg-color);
 	border-radius: var(--border-radius) var(--border-radius) 0 0;
 
@@ -116,7 +117,6 @@ ol, ul {
 
 nav {
 	// position: fixed;
-	border-radius: 0 0 var(--border-radius) var(--border-radius);
 
 	&:not(.breadcrumbs) {
 		/*
@@ -134,7 +134,9 @@ nav {
 			background-color: var(--nav-bg-color);
 		}
 
-		border-bottom: 2px solid var(--secondary-bg-color);
+		border-radius: 0 0 var(--border-radius) var(--border-radius);
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
 		padding: 0 var(--padding);
 		font-size: small;
 
