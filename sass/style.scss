@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 :root {
@@ -10,8 +10,6 @@
 	--padding: 10px;
 	--bg-color: #fff;
 	--font-color: #000;
-	--nav-fg-color: white;
-	--nav-bg-color: dodgerblue;
 	--border-radius: 5px;
 }
 
@@ -29,76 +27,109 @@
 	}
 }
 
-body {
-	margin: 0;
-
-	font: 100%/1.5 "Inter", sans-serif;
+p, li, dd, dt, blockquote, article, section, header, nav, main {
+	font-family: sans-serif; // monospace
+	font-size: 11pt;
+	
+	line-height: 1.5;
+	/* font: 100%/1.5 "Inter", sans-serif;
 	font-feature-settings:
 		"ss01", // open digits
-		"cv05"; // lower case L with tail (disambiguation)
-	font-size: 14px;
+		"cv05"; // lower case L with tail (disambiguation) */
+	// font-size: 14px;
 	word-break: break-word;
 	hyphens: auto;
-	@supports (font-variation-settings: normal) {
-		:root { font-family: 'Inter var', sans-serif; }
-	}
+}
 
-	/* Limit site width */
-	max-width: 1024px;
-
-	/* Center content if window bigger than allowed site width limit */
-	margin: 0 auto;
-
-	/* Use flex in order to let main stretch over the whole page */
-	display: flex;
-	flex-direction: column;
-
-	/*
-	Let the body always stretch ove the full page, so that the footer is always at the bottom of the page,
-	even it the site doesn't fill the whole screen.
-	*/
-	min-height: 100vh;
+body {
+	margin: 0;
 	background-color: var(--bg-color);
 	color: var(--font-color);
 }
 
 main {
-	// Enlarge main content area, so that the footer is always at the bottom of the page,
-	// even it the site doesn't fill the whole screen.
-	flex: 1;
-}
+	h1 {
+		margin: 0;
+		margin-top: 2em;
+		font-size: large;
 
-main, header, footer {
-	padding: var(--padding);
-}
+		counter-increment: h1;
+		counter-set: h2 0;
+		&:before {
+			// content: counter(h1) '. ';
+		}
+	}
+	h2 {
+		margin: 0;
+		margin-top: 1.5em;
+		font-size: medium;
 
-.header-colored {
-	margin-top: 5px;
-	background-color: var(--nav-bg-color);
-	border-radius: var(--border-radius) var(--border-radius) 0 0;
+		counter-increment: h2;
+		counter-set: h3 0;
 
-	&, a {
-		color: var(--nav-fg-color);
+		&:before {
+			// content: counter(h1) '.' counter(h2) '. ';
+		}
+	}
+	h3 {
+		margin: 0;
+		font-size: medium;
+		margin-top: 1.5em;
+
+		counter-increment: h3;
+		&:before {
+			// content: counter(h1) '.' counter(h2) '.' counter(h3) '. ';
+		}
 	}
 }
 
-span[title] {
-	// Display <abbr> and <span title=""> similar
-	cursor: help;
-	text-decoration: underline dotted;
+main, header, footer {
+	margin: 0 auto;
+	padding: var(--padding);
+	max-width: 800px;
 }
-ul {
-	// Decrease default list padding
-	padding-left: 20px;
-}
-li+li {
-	// Add margin between list items
-	margin-top: 5px;
+
+header {
+	* {
+		margin: 0;
+	}
 }
 
 footer {
 	border-top: 2px solid var(--secondary-bg-color);
 	font-size: small;
+}
+
+nav {
+	&.breadcrumbs {
+		ul {
+			display: inline-block;
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			
+			li {
+				display: inline;
+				padding: 0;
+
+				&:not(:last-child):after {
+					content: ' › ';
+				}
+			}
+		}
+	}
+}
+
+article {
+	padding: 10px 0;
+}
+
+
+
+// Display <abbr> and <span title=""> similar
+abbr, span[title] {
+	cursor: help;
+	text-decoration: underline dotted;
 }
 
 ol, ul {
@@ -112,54 +143,6 @@ ol, ul {
 	li::marker {
 		font-weight: 500;
 	}
-}
-
-
-nav {
-	// position: fixed;
-
-	&:not(.breadcrumbs) {
-		/*
-		display: flex;
-		gap: 20px;
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		*/
-	}
-
-	&.breadcrumbs {
-		&, a {
-			color: var(--nav-fg-color);
-			background-color: var(--nav-bg-color);
-		}
-
-		border-radius: 0 0 var(--border-radius) var(--border-radius);
-		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
-		padding: 0 var(--padding);
-		font-size: small;
-
-		ul {
-			display: inline-block;
-			list-style: none;
-			padding: 0;
-			
-			li {
-				display: inline;
-				padding: 0;
-
-				&:not(:last-child):after {
-					content: '›';
-				}
-			}
-		}
-	}
-}
-
-
-article {
-	padding: 10px 0;
 }
 
 a {
@@ -183,12 +166,6 @@ a {
 		text-decoration: none;
 	}
 
-	&.padding {
-		padding: 5px;
-		border-radius: 3px;
-	
-	}
-
 	&.button {
 		padding: 5px;
 		border-radius: 3px;
@@ -197,11 +174,17 @@ a {
 			background-color: var(--secondary-bg-color);
 		}
 	}
-}
 
-span[title] {
-	text-decoration: underline dotted;
-	cursor: help;
+	&.anchor {
+		text-decoration: none;
+		color: inherit;
+	}
+	
+	&.anchor:hover:after {
+		font-size: 80%;
+		vertical-align: middle;
+		content: ' 🔗';
+	}
 }
 
 blockquote {
@@ -220,46 +203,6 @@ th {
 	font-weight: 600;
 }
 
-main h1 {
-	margin: 0;
-	margin-top: 2.5em;
-	font-size: medium;
-
-	counter-increment: h1;
-	counter-set: h2 0;
-	&:before {
-		content: counter(h1) '. ';
-	}
-}
-main h2 {
-	margin: 0;
-	margin-top: 1.5em;
-	font-size: medium;
-
-	counter-increment: h2;
-	counter-set: h3 0;
-
-	&:before {
-		content: counter(h1) '.' counter(h2) '. ';
-	}
-}
-main h3 {
-	margin: 0;
-	font-size: medium;
-	margin-top: 1.5em;
-
-	counter-increment: h3;
-	&:before {
-		content: counter(h1) '.' counter(h2) '.' counter(h3) '. ';
-	}
-}
-
-
-footer {
-	border-top: 2px solid var(--secondary-bg-color);
-	font-size: small;
-}
-
 hr {
 	margin: 30px 0;
 }
@@ -267,15 +210,6 @@ hr {
 .muted {
 	// No absolute color, so it is independent of the color scheme
 	filter: contrast(50%);
-}
-
-header {
-	margin: 30px 0;
-
-	* {
-		// Remove margin from all h1, h2, p, ...
-		margin: 0;
-	}
 }
 
 pre {
@@ -313,32 +247,13 @@ div.grid {
 	}
 }
 
-img.round {
-	border-radius: 50%;
-}
-
 img {
 	border-radius: var(--border-radius);
 	max-width: 100%;
-}
 
-a.anchor {
-	text-decoration: none;
-	color: inherit;
-}
-
-a.anchor:hover:after {
-	font-size: 80%;
-	vertical-align: middle;
-	content: ' 🔗';
-}
-
-section {
-	margin: 50px 0;
-}
-
-.cv-item + .cv-item {
-	margin-top: 50px;
+	&.round {
+		border-radius: 50%;
+	}
 }
 
 .footnote-definition {
@@ -373,7 +288,7 @@ figure {
 	}
 }
 
-// Styling adapted from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
+// Styling adopted from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
 details {
 	border: 1px solid var(--secondary-font-color);
 	border-radius: var(--border-radius);

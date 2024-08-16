@@ -4,45 +4,43 @@ A blog article generated from the content in `content/blog/SLUG.md`.
 -->
 
 {% block header %}
-<header>
-	<h1 class="title">
-		{{ page.title }}
-	</h1>
+<h1 class="title">
+	{{ page.title }}
+</h1>
 
-	<p>{{ page.description }}</p>
-	
-	<p style="color: var(--secondary-font-color)">
-		<time datetime="{{ page.date | date(format="%+")}}">
-			{{ page.date | date(format="%Y-%m-%d") }}
-		</time>
-	</strong></p>
+<p>{{ page.description }}</p>
 
-	<!--
-	TABLE OF CONTENTS
-	See https://www.getzola.org/documentation/content/table-of-contents/ 
-	-->
-	<details class="toc">
-		<summary>Table of Contents</summary>
-		{% if page.toc %}
-			<ol>
-			{% for h1 in page.toc %}
-				<li>
-					<a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
-					{% if h1.children %}
-						<ol>
-							{% for h2 in h1.children %}
-								<li>
-									<a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
-								</li>
-							{% endfor %}
-						</ol>
-					{% endif %}
-				</li>
-			{% endfor %}
-			</ol>
-		{% endif %}
-	</details>
-</header>
+<p style="color: var(--secondary-font-color)">
+	<time datetime="{{ page.date | date(format="%+")}}">
+		{{ page.date | date(format="%Y-%m-%d") }}
+	</time>
+</strong></p>
+
+<!--
+TABLE OF CONTENTS
+See https://www.getzola.org/documentation/content/table-of-contents/ 
+-->
+<details class="toc">
+	<summary>Table of Contents</summary>
+	{% if page.toc %}
+		<ul>
+		{% for h1 in page.toc %}
+			<li>
+				<a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+				{% if h1.children %}
+					<ul>
+						{% for h2 in h1.children %}
+							<li>
+								<a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+</details>
 {% endblock header %}
 
 

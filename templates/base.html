@@ -42,36 +42,38 @@
 </head>
 
 <body>
-	<nav class="breadcrumbs">
-		<!-- From https://zola.discourse.group/t/breadcrumb/509/3 -->
-		<ul>
-			{% if section or page %}
-				{% set current = section | default(value=page) %}
-				{% for ancestor in current.ancestors %}
-					{% set section = get_section(path=ancestor) %}
-					<li><a class="padding ancestor" href="{{ section.path }}">{{ section.title | default(value=config.title) }}</a></li>
-				{% endfor %}
+	<header>
+		<nav class="breadcrumbs">
+			<!-- From https://zola.discourse.group/t/breadcrumb/509/3 -->
+			<ul>
+				{% if section or page %}
+					{% set current = section | default(value=page) %}
+					{% for ancestor in current.ancestors %}
+						{% set section = get_section(path=ancestor) %}
+						<li><a class="ancestor" href="{{ section.path }}">{{ section.title | default(value=config.title) }}</a></li>
+					{% endfor %}
 
-				<!-- Skip index/home because it is always added at the beginning -->
-				<li><a class="padding current" href="{{ current.path }}">{{ current.title | default(value=config.title) }}</a></li>
-			{% else %}
-				<!-- Always? the 404 page -->
-				<li><a class="padding ancestor" href="/">{{ config.title }}</a></li>
-				<li>/</li>
-				<li><a class="padding current" href="/404.html">404 Not Found</a></li>
+					<!-- Skip index/home because it is always added at the beginning -->
+					<li><a class="current" href="{{ current.path }}">{{ current.title | default(value=config.title) }}</a></li>
+				{% else %}
+					<!-- Always? the 404 page -->
+					<li><a class="ancestor" href="/">{{ config.title }}</a></li>
+					<li>/</li>
+					<li><a class="current" href="/404.html">404 Not Found</a></li>
+				{% endif %}
+			</ul>
+		</nav>
+	</header>
+
+	<header>
+		<!-- Default header with title and description of the page or section. Can be overridden in child templates -->
+		{% block header %}
+			{% if page or section %}
+				<h1><a class="anchor" href="#">{{ page.title | default(value=section.title) }}</a></h1>
+				<p>{{ page.description | default(value=section.description) }}</p>
 			{% endif %}
-		</ul>
-	</nav>
-
-	<!-- Default header with title and description of the page or section. Can be overridden in child templates -->
-	{% block header %}
-		{% if page or section %}
-		<header>
-			<h1><a class="anchor" href="#">{{ page.title | default(value=section.title) }}</a></h1>
-			<p>{{ page.description | default(value=section.description) }}</p>
-		</header>
-		{% endif %}
-	{% endblock %}
+		{% endblock %}
+	</header>
 
 	<main>
 		{% block content %} {% endblock %}
@@ -79,7 +81,7 @@
 
 	<footer>
 		<p>
-			linu.sk © 2024 — <a href="/about">About</a>
+			© 2024 <a class="text" href="/">linu.sk</a> · <a href="/about">About</a>
 		</p>
 	</footer>
 </body>
