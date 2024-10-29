@@ -3,15 +3,10 @@ title = "About"
 description = "Technical details and a non-imprint"
 +++
 
-
 # Technical Details
 
-- **Static Site Generator**: [Zola](https://www.getzola.org)
-- **Font**: [Inter](https://rsms.me/inter/) with font features `ss01` (open digitals) and `cv05` (lower-case L with tail)
-- **Hosting**: [Strato](https://www.strato.de) V-Server
-- **Webserver**: [Caddy](https://caddyserver.com)
-- **Sourcecode**: [GitHub](https://github.com/linuskmr/linu.sk "Platform for hosting open source code")  
-	<small>Feel free to open an issue or pull request!</small>
+In general, this website follows the [HTML First paradigm](https://html-first.com), which means that this website does not use a frontend framework like React but is instead statically rendered to HTML using the [Zola](https://www.getzola.org) static site generator. Additionally, semantic HTML/class-less CSS is used wherever possible. Pre-compressed [Brotli](https://github.com/google/brotli) files are then served by the [Caddy](https://caddyserver.com) webserver, running on a [Strato](https://www.strato.de) VPS.
+The source code of this site can be found on [GitHub](https://github.com/linuskmr/linu.sk); pull requests are welcome!
 
 *None of this information (should) reveal sensitive details that couldn't also be gathered otherwise, e.g. by using a [gelocation IP lookup](https://www.iplocation.net/ip-lookup), inspecting the `Server` HTTP header, or by using the [DevTools](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools) in general.*
 
