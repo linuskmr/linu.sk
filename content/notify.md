@@ -1,6 +1,6 @@
 +++
 title = "Notify"
-description = "Get push notifications for updates "
+description = "Get push notifications for updates"
 +++
 
 
@@ -10,7 +10,7 @@ This site can send you a push notification for updates like a new blog post. The
 
 
 <button onclick="enableNotifications()">Enable notifications for updates</button>
-<p>Notification access: <span id="status"></span></p>
+<p>Notification access: <code id="status"></code></p>
 <button onclick="sendDemoNotification()">Send demo notification</button><br>
 
 

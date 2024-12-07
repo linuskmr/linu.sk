@@ -7,7 +7,7 @@
 	--link-color: blue;
 	--secondary-font-color: #66798c;
 	--secondary-bg-color: #f0f2f4;
-	--padding: 10px;
+	--padding: 14px;
 	--bg-color: #fff;
 	--font-color: #000;
 	--border-radius: 5px;
@@ -28,25 +28,38 @@
 }
 
 html {
-	font-family: sans-serif; // monospace
-	font-size: 11pt;
-	
-	line-height: 1.5;
+	font-family: "Inter", sans-serif;
 	/* font: 100%/1.5 "Inter", sans-serif;
 	font-feature-settings:
 		"ss01", // open digits
 		"cv05"; // lower case L with tail (disambiguation) */
-	// font-size: 14px;
+	font-size: 11pt;
+	line-height: 1.6;
+
 	word-break: break-word;
 	hyphens: auto;
 }
 
 body {
+	// Remove default margin to allow individual components to span the whole page, e.g. a colored header
 	margin: 0;
 	background-color: var(--bg-color);
 	color: var(--font-color);
 }
 
+main, header, footer {
+	/* Center content */
+	margin: 0 auto;
+	padding: var(--padding);
+	max-width: 800px;
+}
+
+header * {
+	// Remove default margin from all elements (e.g. nav, p) inside the header
+	margin: 0;
+}
+
+// Custom heading sizes
 main {
 	h1 {
 		margin: 0;
@@ -83,39 +96,28 @@ main {
 	}
 }
 
-main, header, footer {
-	margin: 0 auto;
-	padding: var(--padding);
-	max-width: 800px;
-}
-
-header {
-	* {
-		margin: 0;
-	}
-}
-
 footer {
 	border-top: 2px solid var(--secondary-bg-color);
 	font-size: small;
 }
 
-nav {
-	&.breadcrumbs {
-		ul {
-			display: inline-block;
-			list-style: none;
-			padding: 0;
-			margin: 0;
-			
-			li {
-				display: inline;
-				padding: 0;
 
-				&:not(:last-child):after {
-					content: ' › ';
-				}
-			}
+// Breadcrumb navigation
+nav.breadcrumbs ul {
+	// Inline list
+	display: inline-block;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	li {
+		// Inline list
+		display: inline;
+		padding: 0;
+
+		// Separator between breadcrumb items
+		&:not(:last-child):after {
+			content: ' › ';
 		}
 	}
 }
@@ -127,8 +129,6 @@ article {
 section {
 	margin: 2rem 0;
 }
-
-
 
 // Display <abbr> and <span title=""> similar
 abbr, span[title] {
@@ -142,6 +142,7 @@ ol, ul {
 		padding-left: 5px;
 	}
 	li + li {
+		// Spacing between list items should be more than just the line height
 		margin-top: 5px;
 	}
 	li::marker {
@@ -157,38 +158,39 @@ a {
 		text-decoration: none;
 	}
 
-	// External links get an arrow ↗ after them
-	&.external {
-		&:after {
-			content: "↗";
-		}
+	// ".external" links get an arrow ↗ after them
+	&.external :after {
+		content: "↗";
 	}
 
-	// Text links appear as normal text
+	// ".text" links appear as normal text
 	&.text {
 		color: inherit;
 		text-decoration: none;
 	}
 
-	&.button {
-		padding: 5px;
-		border-radius: 3px;
-
-		&:hover {
-			background-color: var(--secondary-bg-color);
-		}
-	}
-
+	// Clickable headings, i.e. anchor links
 	&.anchor {
 		text-decoration: none;
 		color: inherit;
+
+		&:hover:after {
+			font-size: 80%;
+			vertical-align: middle;
+			content: ' 🔗';
+		}
 	}
-	
-	&.anchor:hover:after {
-		font-size: 80%;
-		vertical-align: middle;
-		content: ' 🔗';
-	}
+}
+
+// Buttons and links with the button class
+button, a.button {
+	font-size: inherit;
+	padding: 1em;
+	color: var(--bg-color);
+	background-color: var(--font-color);
+	border: none;
+	border-radius: 0.5em;
+	cursor: pointer;
 }
 
 blockquote {
