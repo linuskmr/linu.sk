@@ -1,8 +1,14 @@
-// @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-
 :root {
 	color-scheme: light dark;
+
+	// See https://rsms.me/inter/#usage
+	font-family: Inter, sans-serif;
+	// cv05: lower case l with tail
+	// cv06: simplified u
+	font-feature-settings: 'liga', 'calt', 'cv05';
+	@supports (font-variation-settings: normal) {
+		:root { font-family: InterVariable, sans-serif; }
+	  }
 
 	--link-color: blue;
 	--secondary-font-color: #66798c;
@@ -28,11 +34,6 @@
 }
 
 html {
-	font-family: "Inter", sans-serif;
-	/* font: 100%/1.5 "Inter", sans-serif;
-	font-feature-settings:
-		"ss01", // open digits
-		"cv05"; // lower case L with tail (disambiguation) */
 	font-size: 11pt;
 	line-height: 1.6;
 
