@@ -7,6 +7,9 @@
 	<link rel="stylesheet" href="/style.css">
 	<script src="/footnote.js"></script>
 
+	<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+
+
 	<!--
 		Enable autodiscover, so browsers can show a button to subscribe to the feed. 
 		https://www.getzola.org/documentation/templates/feeds/
@@ -41,7 +44,7 @@
 	<meta name="author" content="Linus">
 </head>
 
-<body>
+<body hx-boost="true">
 	<header>
 		<nav class="breadcrumbs">
 			<!-- From https://zola.discourse.group/t/breadcrumb/509/3 -->
