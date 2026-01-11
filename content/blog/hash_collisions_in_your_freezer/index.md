@@ -4,11 +4,11 @@ date = 2024-01-27
 description = "How non-unique pre-printed codes on freezer bags can lead to confusion"
 +++
 
-I recently came across the [Toppits freezer bags](https://www.toppits.de/en/freezer-bags-419.html) with their 4-digit "pre-printed freshness codes". 
-Together with the [Foodsaver App](https://www.toppits.de/en/no-more-forgetting-no-more-throwing-away-293,228.html), the idea is that you can organize your freezer and keep track of its and their expiration dates.
+I recently came across the [Toppits freezer bags](https://www.toppits.de/de/produkte/einfrieren/gefrierbeutel) with their 4-digit "pre-printed freshness codes". 
+Together with the [Foodsaver App](https://www.toppits.de/de/produkte/einfrieren/foodsaver-app), the idea is that you can organize your freezer and keep track of its and their expiration dates.
 
-{% figure(alt="Photo of Toppits freezer bags with preprinted 4-digit freshness codes", url="https://www.toppits.de/portal/pics/Produktdatenbank/Gefrierbeutel/Mood-01_Freezer-Bags_Toppits-Albal_DE_20220408_V1_560px.jpg") %}
-Toppits freezer bags with freshness codes. Image taken from [toppits.de](https://www.toppits.de/portal/pics/Produktdatenbank/Gefrierbeutel/Mood-01_Freezer-Bags_Toppits-Albal_DE_20220408_V1_560px.jpg).
+{% figure(alt="Photo of Toppits freezer bags with preprinted 4-digit freshness codes", url="https://s7g10.scene7.com/is/image/melitta/20210601_7936?ts=1756470216760&dpr=off") %}
+Toppits freezer bags with freshness codes. Image taken from [toppits.de](https://s7g10.scene7.com/is/image/melitta/20210601_7936?ts=1756470216760&dpr=off).
 {% end %}
 
 The 4-digit freshness code used to identify a bag results in 10,000 possible freshness codes. Naively, one could say: "Nobody is likely to have 10,000 freezer bags in their freezer."
