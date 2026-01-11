@@ -222,6 +222,7 @@ hr {
 pre {
 	padding: 10px;
 	border-radius: var(--border-radius);
+	background-color: var(--secondary-bg-color) !important;
 	overflow: auto; // Enable scrollbar on overflow
 }
 
